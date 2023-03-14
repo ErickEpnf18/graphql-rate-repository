@@ -42,7 +42,12 @@ app.use(async (ctx, next) => {
   await next();
 });
 
-app.use(cors());
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 const apiRouter = new Router();
 
